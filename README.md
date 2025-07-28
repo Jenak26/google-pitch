@@ -21,7 +21,7 @@ This single-page site showcases:
 
 - HTML5  
 - Tailwind CSS  
-- JavaScript / jQuery  
+- JavaScript 
 - Google Fonts  
 - GitHub Pages (deployment)
 

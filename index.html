@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janak Kabra - Google Student Ambassador Applicant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #e5e7eb;
+        }
+        .font-heading {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* --- Scroll-based Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-delay: 0.2s;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Gradient & Highlight Styles --- */
+        .gradient-text {
+            background: -webkit-linear-gradient(45deg, #38bdf8, #4ade80, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #38bdf8 0%, #4ade80 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            transition: background-size 0.25s ease-in;
+        }
+        .highlight:hover {
+            background-size: 100% 88%;
+        }
+
+        /* --- Fun Mode Styles --- */
+        #fun-mode-wrap {
+            width: 100%;
+            height: 100%;
+            position: fixed; /* Changed to fixed to overlay the whole viewport */
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            background-color: transparent; /* Make background transparent */
+            z-index: 99; /* Sit below the header but above content */
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+        #fun-mode-wrap p {
+            display: none; /* Hide the text instruction */
+        }
+        .ball {
+            pointer-events: none;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: gray;
+            animation: implode 1s ease-in-out;
+            animation-fill-mode: both;
+            opacity: .5;
+            z-index: 99;
+        }
+        @keyframes implode {
+            100% {transform: scale(0)}
+        }
+        
+        /* --- Toggle Switch Styles --- */
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #4b5563; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #38bdf8; }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Fun Mode Container (Initially Hidden) -->
+    <div id="fun-mode-wrap" class="hidden">
+      <p>move the cursor around the screen</p>
+    </div>
+
+    <!-- Header & Navigation (Always visible) -->
+    <header class="bg-gray-900/70 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-lg" style="z-index: 100;">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold font-heading tracking-wider">JANAK KABRA</h1>
+            <div class="flex items-center space-x-4">
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#why" class="text-gray-400 hover:text-white transition-colors duration-300">The Why</a>
+                    <a href="#missions" class="text-gray-400 hover:text-white transition-colors duration-300">The Missions</a>
+                </nav>
+                <div class="flex items-center space-x-2">
+                    <span class="hidden sm:inline text-sm font-medium text-gray-400">Fun Mode</span>
+                    <label class="switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95">
+            <a href="#why" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">The Why</a>
+            <a href="#missions" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">The Missions</a>
+        </div>
+    </header>
+
+    <!-- Main Professional Content -->
+    <div id="professional-content">
+        <main>
+            <!-- Section 1: Hero -->
+            <section id="home" class="min-h-screen flex items-center pt-20">
+                <div class="container mx-auto px-6 text-left">
+                    <div class="max-w-4xl">
+                        <h2 class="font-heading text-5xl md:text-8xl font-extrabold leading-tight mb-4 reveal">I don't just learn.</h2>
+                        <h2 class="font-heading text-5xl md:text-8xl font-extrabold leading-tight mb-6 reveal"><span class="gradient-text">I build solutions.</span></h2>
+                        <p class="max-w-2xl text-lg md:text-xl text-gray-400 mb-8 reveal">
+                           For me, technology isn't about memorizing syntax. It's about building something that works. <strong class="text-white">That's why this website itself is my creative pitch.</strong> It’s a real-world example of my philosophy: find a problem, get your hands dirty, and build a solution that helps people.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: The Why -->
+            <section id="why" class="py-20 md:py-32 bg-gray-900">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-5 gap-12 items-center">
+                        <div class="md:col-span-2 reveal">
+                            <h3 class="font-heading text-4xl md:text-5xl font-bold mb-4">From Frustration to<br>a <span class="highlight">Framework</span>.</h3>
+                            <div class="w-24 h-1.5 bg-sky-400 mb-8"></div>
+                        </div>
+                        <div class="md:col-span-3 text-lg text-gray-400 space-y-6 leading-relaxed reveal">
+                            <p>I've always been fascinated by how technology can solve problems. But as I've navigated my studies at VIT, I've noticed a common pattern: we have incredibly bright students learning powerful skills, but often in isolation. The most exciting breakthroughs in my own projects have come from late-night discussions with friends, bouncing ideas off each other and tackling a problem from different angles.</p>
+                            <p>That's when I realized the biggest opportunity on our campus isn't just about learning more code; it's about creating a space where these conversations can happen at scale. My passion is to build that space—a community where students from all departments can connect, share their skills, and turn their academic knowledge into practical, collaborative projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: The Missions -->
+            <section id="missions" class="py-20 md:py-32 bg-gray-900">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16 reveal">
+                        <h3 class="font-heading text-4xl md:text-5xl font-bold mb-3">The Three Missions</h3>
+                        <p class="text-lg text-gray-500">A clear plan for real impact.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <!-- Mission 1 -->
+                        <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-sky-400 hover:-translate-y-2 transition-all duration-300 reveal">
+                            <h4 class="font-heading text-2xl font-bold mb-3 text-sky-400">Mission 01: The AI Launchpad</h4>
+                            <p class="text-gray-400 leading-relaxed">AI is changing the world, but many students feel it's too complex to touch. This mission is about breaking down that barrier. We'll run workshops on Google's AI tools like Gemini and Teachable Machine, showing how anyone—from artists to biologists—can leverage AI to innovate in their field.</p>
+                        </div>
+                        <!-- Mission 2 -->
+                        <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-green-400 hover:-translate-y-2 transition-all duration-300 reveal">
+                            <h4 class="font-heading text-2xl font-bold mb-3 text-green-400">Mission 02: Code & Chai Sessions</h4>
+                            <p class="text-gray-400 leading-relaxed">Forget boring lectures. These are weekly, informal meetups where students bring their laptops and problems. We'll work together, share ideas, and foster peer-to-peer learning in a relaxed environment.</p>
+                        </div>
+                        <!-- Mission 3 -->
+                        <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300 reveal">
+                            <h4 class="font-heading text-2xl font-bold mb-3 text-yellow-400">Mission 03: The 'Zero to Hero' Showcase</h4>
+                            <p class="text-gray-400 leading-relaxed">A platform to celebrate the journey, not just the destination. We'll feature projects from absolute beginners, showing their first lines of code to their final product. It's about making tech accessible and celebrating growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-6 border-t border-gray-800">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <p>&copy; 2025 Janak Kabra. Built with passion for the Google Student Ambassador Program.</p>
+            </div>
+        </footer>
+    </div>
+
+
+    <script>
+    $(document).ready(function() {
+        // --- Mode Toggle Logic ---
+        const modeToggle = $('#mode-toggle');
+        const professionalContent = $('#professional-content');
+        const funModeWrap = $('#fun-mode-wrap');
+        let funModeInterval;
+
+        modeToggle.on('change', function() {
+            if (this.checked) {
+                // Show the fun mode overlay
+                funModeWrap.removeClass('hidden');
+                startFunMode();
+            } else {
+                // Hide the fun mode overlay
+                stopFunMode();
+                funModeWrap.addClass('hidden');
+            }
+        });
+
+        // --- Fun Mode JS ---
+        var mousePos = {};
+        function getRandomInt(min, max) { return Math.round(Math.random() * (max - min + 1)) + min; }
+        function startFunMode() {
+            // We need to listen on the document now, not just the window, to get coordinates over the entire page
+            $(document).on('mousemove.funmode', function(e) { 
+                mousePos.x = e.pageX; 
+                mousePos.y = e.pageY; 
+            });
+
+            $(document).on('mouseleave.funmode', function(e) { 
+                mousePos.x = -1; 
+                mousePos.y = -1; 
+            });
+
+            funModeInterval = setInterval(function() {
+                if (mousePos.x > 0 && mousePos.y > 0) {
+                    var range = 15;
+                    var color = "background: rgb(" + getRandomInt(0, 255) + "," + getRandomInt(0, 255) + "," + getRandomInt(0, 255) + ");";
+                    var sizeInt = getRandomInt(10, 30);
+                    var size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+                    // The position needs to account for the page scroll
+                    var left = "left: " + getRandomInt(mousePos.x - range - sizeInt, mousePos.x + range) + "px;";
+                    var top = "top: " + getRandomInt(mousePos.y - range - sizeInt, mousePos.y + range) + "px;";
+                    var style = left + top + color + size;
+                    // Append balls to the body so they can be positioned anywhere on the page
+                    $("<div class='ball' style='" + style + "'></div>").appendTo('body').one("animationend", function() { $(this).remove(); });
+                }
+            }, 1);
+        }
+        function stopFunMode() {
+            clearInterval(funModeInterval);
+            $(document).off('.funmode');
+            $('.ball').remove(); // Remove any existing balls
+        }
+
+        // --- Professional Mode JS ---
+        $('#mobile-menu-button').on('click', function() { $('#mobile-menu').toggleClass('hidden'); });
+        $('#mobile-menu a').on('click', function() { $('#mobile-menu').addClass('hidden'); });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            observer.observe(el);
+        });
+    });
+    </script>
+
+</body>
+</html>
